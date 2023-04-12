@@ -1,0 +1,254 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.faceouter{
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+}
+
+.faceinner{
+    width: 175px;
+    height: 150px;
+    border-radius: 50%;
+    background: #2a1414;
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    rotate: 10deg;
+}
+
+.earleft{
+    width: 50px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgb(89, 207, 233);
+    position: absolute;
+    right: 0;
+    top: 35%;
+    rotate: -0deg;
+    perspective: 1000px;
+}
+
+.antennaright{
+    height: 60px;
+    width: 16px;
+    position: absolute;
+    background: #fff;
+    border: 1px solid black;
+    rotate: -40deg;
+    top:-5%;
+    z-index: -1;
+}
+
+.antennaright::before{
+    content: "";
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    background: rgb(89, 207, 233);
+    border-radius: 50%;
+    rotate: 90deg;
+    top: -12px;
+    left: -8px;
+}
+
+.antennaleft{
+    height: 100px;
+    width: 16px;
+    position: absolute;
+    background: #fff;
+    border: 1px solid black;
+    border-bottom: 0px;
+    rotate: 40deg;
+    top:-15%;
+    right: 5%;
+}
+
+.antennaleft::before{
+    content: "";
+    height: 32px;;
+    width: 32px;
+    position: absolute;
+    background: rgb(89, 207, 233);
+    border-radius: 50%;
+    rotate: 90deg;
+    top: -12px;
+    left: -8px;
+}
+
+.eyeleft,.eyeright{
+    width: 48px;
+    height: 24px;
+    background: transparent;
+    border-top: 4px solid rgb(89, 207, 233);
+    border-radius: 50%;
+    rotate: -5deg;
+    position: absolute;
+    top:30%;
+    left: 50%;
+}
+
+.eyeleft::before,.eyeright::before{
+    content:"";
+    height:2px;
+    width: 24px;
+    background: #59cfe9;
+    position: absolute;
+    top: 75%;
+    left:25%;
+    animation: eye 1s ease-in-out infinite alternate-reverse;
+}
+
+.eyeright{
+    left: 15%;
+    top:35%;
+}
+
+@keyframes eye{
+    0%,100%{
+        height: 18px;
+        width: 22px;
+        border-radius: 50%;
+        top: 70%;
+    }
+    50%{
+        height:2px;
+        width: 24px;
+        border-radius: 0;
+        top: 85%;
+    }
+}
+
+.mouth{
+    width: 56px;
+    height: 16px;
+    background: #59cfe9;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 20%;
+    left: 35%;
+    rotate: -5deg;
+    animation: mouth 1s ease-in-out infinite alternate;
+}
+
+@keyframes mouth{
+    0%,100%{
+        border-radius: 50%;
+        height: 24px;
+        width: 36px;
+        left: 38%;
+    }
+    50%{
+        border-radius: 4px;
+        height: 4px;
+        bottom: 25%;
+    }
+}
+
+.neck{
+    width: 80px;
+    height: 40px;
+    background: #59cfe9;
+    perspective: 1000px;
+    margin-top: -0.25em;
+    margin-left: -1.5em;
+    z-index: -1;
+}
+
+.body{
+    height: 450px;
+    width: 350px;
+    background: #fff;
+    perspective: 1000px;
+    margin-left: -1em;
+    border-radius: 20%;
+    position: relative;
+}
+
+.handleft,.handright{
+    width: 60px;
+    height: 300px;
+    background: #fff;
+    position: absolute;
+    right: 10%;
+    top: 15%;
+    border-radius: 20px;
+    rotate: -40deg;
+    transform-origin: top center;
+}
+
+.handleft{
+    animation: waveleft 3s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+.handleft div,.handright div{
+    content: "";
+    height: 84px;
+    width: 84px;
+    background: #59cfe9;
+    position: absolute;
+    border-radius: 50%;
+    bottom: -15%;
+    left: -15%;
+}
+
+.handright{
+    right: 75%;
+    top: 20%;
+    transform: rotate(0deg);
+    border: 1px solid #000;
+    animation: waveright 3s ease-in-out infinite alternate;
+}
+
+@keyframes waveleft {
+    0%,100%{
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50%{
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes waveright {
+    50%{
+        transform: rotate(0deg);
+    }
+    0%,100%{
+        transform: rotate(60deg);
+    }
+}
+
+.leg{
+    position: relative;
+}
+
+.leg::before,.leg::after{
+    height: 250px;
+    width: 60px;
+    background: #fff;
+    content: "";
+    position: absolute;
+    border-radius: 20px;
+    margin-top: -1em;
+}
+
+.leg::after{
+    margin-left: -6em;
+}
